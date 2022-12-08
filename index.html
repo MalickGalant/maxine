@@ -9,8 +9,12 @@
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
-   <script src="data/games.js" defer></script>
-    <img src="images/fox1.jpg" alt="a fox picture">
+   <script src="../trusted-click.js"></script>
+  <div id="log"></div>
+  <div id="target"></div>
+  <iframe allowfullscreen></iframe>
+  <script> // rfsPromise will be uncaught setup({ allow_uncaught_exception: true }); promise_test(async (t) => { const iframe = document.querySelector("iframe"); await new Promise((r) => { iframe.onload = r; iframe.src = "about:blank"; }); const target = document.getElementById("target"); const iframeDoc = iframe.contentDocument; iframeDoc.onfullscreenchange = t.unreached_func( "fullscreenchange event in iframe" ); iframeDoc.onfullscreenerror = t.unreached_func( "fullscreenerror event in iframe" ); document.onfullscreenchange = t.unreached_func( "fullscreenchange event" ); const errorPromise = new Promise( (resolve) => (document.onfullscreenerror = resolve) ); await trusted_click(document.body); const rfsPromise = target
+  <img src="images/fox1.jpg" alt="a fox picture">
 
 
  <button class="add-button">Add to home screen</button>
