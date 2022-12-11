@@ -115,13 +115,17 @@
   <div class="trigger">
     <input on="input-debounced:AMP.setState({message: event.value})" value="Hello World">
     <button on="tap:snackbarSlideIn.restart">
-      Show Ads
+      Show Blog
     </button>
   </div>
-    <!-- ## Basic usage with local storage -->
+
+
+  <!-- ## Basic usage with local storage -->
   <!--
     By default, when the user agrees to the cookies policy, the status is saved in the local storage.
   -->
+
+
   <amp-user-notification id="my-notification" class="sample-notification" layout="nodisplay">
     This is an amp-user-notification. It uses local storage to store the dismissed state.
     <button on="tap:my-notification.dismiss">I accept</button>
@@ -138,9 +142,13 @@
 
     If the notification has already been dismissed and the related item has been added to the localstorage, the notification will not appear even if you have configured `data-show-if-href` and `data-dismiss-href`.
   -->
+
+
   <amp-user-notification id="my-notification-with-server-endpoint" class="sample-notification" layout="nodisplay" data-show-if-href="https://amp.dev/documentation/examples/components/amp-user-notification/show?timestamp=TIMESTAMP" data-dismiss-href="https://amp.dev/documentation/examples/components/amp-user-notification/echo/post">
       This is an amp-user-notification. It uses a backend service to verify if the notification has to be shown.
       <button on="tap:my-notification.dismiss">I accept</button>
   </amp-user-notification>
+
+
   </body>
   </html>
