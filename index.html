@@ -10,8 +10,7 @@
 <meta charset="utf-8">
 <title>Animated Snackbar</title>
 <link rel="canonical" href="        ">
-
-  <meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
@@ -22,6 +21,24 @@
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
  
   <style amp-custom>
+
+.left, .right {
+  float: left;
+  width: 20%; /* The width is 20%, by default */
+}
+
+.main {
+  float: left;
+  width: 60%; /* The width is 60%, by default */
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
     table {
   width:100%;
 }
@@ -92,8 +109,41 @@ th, td {
 <body>
 <h1>The Article Blog</h1>
 
+<div class="left">
+  <p>Left Menu</p>
+</div>
 
+<div class="main">
+  <p>Main Content</p>
+</div>
 
+<div class="right">
+  <p>Right Content</p>
+</div>
+
+<div class="left">
+  <p>Left Menu</p>
+</div>
+
+<div class="main">
+  <p>Main Content</p>
+</div>
+
+<div class="right">
+  <p>Right Content</p>
+</div>
+
+<div class="left">
+  <p>Left Menu</p>
+</div>
+
+<div class="main">
+  <p>Main Content</p>
+</div>
+
+<div class="right">
+  <p>Right Content</p>
+</div>
 
   <!-- ## The animation -->
   <!--
