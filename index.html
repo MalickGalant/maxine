@@ -1,241 +1,38 @@
-<!--
-  ## Introduction
-
-  [Snackbars](https://material.io/guidelines/components/snackbars-toasts.html) provide brief feedback about an operation through a message at the bottom of the screen.
--->
-<!-- -->
-<!doctype html>
-<html ⚡ lang="en">
+  
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Animated Snackbar</title>
-<link rel="canonical" href="        ">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-  <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
-  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-  <script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script>
-  <!-- `amp-user-notification` requires `amp-analytics` to be imported as well. -->
-  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
  
-  <style amp-custom>
-
-.left, .right {
-  float: left;
-  width: 20%; /* The width is 20%, by default */
-}
-
-.main {
-  float: left;
-  width: 60%; /* The width is 60%, by default */
-}
-
-/* Use a media query to add a breakpoint at 800px: */
-@media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-}
-
-    table {
-  width:100%;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 15px;
-  text-align: left;
-}
-#t01 tr:nth-child(even) {
-  background-color: #eee;
-}
-#t01 tr:nth-child(odd) {
- background-color: #fff;
-}
-#t01 th {
-  background-color: black;
-  color: white;
-}
-    .trigger {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .trigger > * {
-      padding: 0.5rem;
-      margin: 0.5rem;
-    }
-    .snackbar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 48px;
-      margin: 0 auto;
-      padding: 14px 24px;
-      max-width: 568px;
-      background: #323232;
-      color: white;
-      border-radius: 2px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      transform: translateY(100%);
-      z-index: 1000;
-    } 
-    :root {
-      --space-2: 1rem;   /* 16px */
-    }
-    /* Center the notification content */
-    amp-user-notification.sample-notification {
-      padding: var(--space-2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    amp-user-notification.sample-notification > button {
-      min-width: 80px;
-    }
-  </style>
-
-
-</head>
-<body>
-<h1>The Article Blog</h1>
-
-<div class="left">
-  <p>Left Menu</p>
-</div>
-
-<div class="main">
-  <p>Main Content</p>
-</div>
-
-<div class="right">
-  <p>Right Content</p>
-</div>
-
-<div class="left">
-  <p>Left Menu</p>
-</div>
-
-<div class="main">
-  <p>Main Content</p>
-</div>
-
-<div class="right">
-  <p>Right Content</p>
-</div>
-
-<div class="left">
-  <p>Left Menu</p>
-</div>
-
-<div class="main">
-  <p>Main Content</p>
-</div>
-
-<div class="right">
-  <p>Right Content</p>
-</div>
-
-  <!-- ## The animation -->
-  <!--
-    We want to show a snackbar that disappears after a few seconds. This could be easily accomplished by adding a CSS class using `amp-bind` to show the snackbar and then using CSS animations to hide the snackbar after a few seconds. However, with this approach it's not possible to trigger the snackbar multiple times (the newly added CSS class won't disappear).
-
-    We can solve this problem by using the [`amp-animation`](content/amp-dev/documentation/components/reference/amp-animation)  extension, which makes it possible to execute animations repeatedly. We define an animation that will slide-in the snackbar and then hide it after a few seconds using the `offset` attribute to time the different keyframes.
-  -->
-
-  <amp-animation id="snackbarSlideIn" layout="nodisplay">
-    <script type="application/json">
-      [{
-        "duration": "3s",
-        "fill": "both",
-        "easing": "ease-out",
-        "iterations": "1",
-        "selector": ".snackbar",
-        "keyframes": [{
-            "transform": "translateY(100%)"
-          },
-          {
-            "transform": "translateY(0)", "offset": 0.1
-          },
-          {
-            "transform": "translateY(0)", "offset": 0.9
-          },
-
-          {
-            "transform": "translateY(100%)"
-          }
-        ]
-      }
-      ]
-    </script>
-  </amp-animation>
-
-  <!-- ## The snackbar -->
-  <!-- Our snackbar is a `div` containing the message. It's going to disappear after a few seconds so we don't provide any additional buttons to manually hide the snackbar. The text message is bound to an `amp-state` variable to make it's content configurable. This is not needed if the snackbar should always show the same message. -->
-  
-
-  <div class="snackbar" [text]="message">
-
-  <article>
-  <h2>Google Chrome</h2>
-  <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web browser today!</p>
-</article>
-
-<article>
-  <h2>Mozilla Firefox</h2>
-  <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular web browser since January, 2018.</p>
-</article>
-
-<article>
-  <h2>Microsoft Edge</h2>
-  <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced Internet Explorer.</p>
-</article>
-  
-
-
-   </div>
-
-  
-   <div class="trigger">
-
-    <input on="input-debounced:AMP.setState({message: event.value})" value="Name & Last Name">
-    <button id="button" on="tap:snackbarSlideIn.restart">
-     Blog
-    </button>
-
+<div class="container">
+  <h2>Maliek News</h2>
+  <p>Image at the top (card-img-top):</p>
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Maliek Doe</h4>
+      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
   </div>
-
-
-  <!-- ## Basic usage with local storage -->
-  <!--
-    By default, when the user agrees to the cookies policy, the status is saved in the local storage.
-  -->
-
-
-  
-  <!-- ## Advanced usage with a server endpoint -->
-  <!--
-    When using a backend solution, two parameters are available: `data-show-if-href` and `data-dismiss-if-href`. They can be used together or separatively.
-
-    * `data-show-if-href` needs to point to a server-endpoint returning `{ "showNotification": true|false }`.
-    * The URL defined by `data-dismiss-href` will be called when the notification is dismissed.
-
-    You can find a sample backend implementation [here](https://github.com/ampproject/samples/blob/master/amp-paywall-demo/controllers/amp-user-notification/api.js).
-
-    If the notification has already been dismissed and the related item has been added to the localstorage, the notification will not appear even if you have configured `data-show-if-href` and `data-dismiss-href`.
-  -->
-
-
-  
-
+  <br>
+  <div class="card" style="width:400px">
+    <div class="card-body">
+      <h4 class="card-title">Maliek News</h4>
+      <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+    <img class="card-img-bottom" src="img_avatar6.png" alt="Card image" style="width:100%">
+   </div>
+  </div>
   </body>
   </html>
