@@ -8,8 +8,8 @@
 <html ⚡ lang="en">
 <head>
 <meta charset="utf-8">
-  <title>Animated Snackbar</title>
-  <link rel="canonical" href="https://amp.dev/documentation/examples/visual-effects/animated_snackbar/index.html">
+<title>Animated Snackbar</title>
+<link rel="canonical" href="        ">
 
   <meta name="viewport" content="width=device-width">
   
@@ -67,8 +67,11 @@
 
 
   </style>
+
+
 </head>
 <body>
+
   <!-- ## The animation -->
   <!--
     We want to show a snackbar that disappears after a few seconds. This could be easily accomplished by adding a CSS class using `amp-bind` to show the snackbar and then using CSS animations to hide the snackbar after a few seconds. However, with this approach it's not possible to trigger the snackbar multiple times (the newly added CSS class won't disappear).
@@ -126,11 +129,7 @@
   -->
 
 
-  <amp-user-notification id="my-notification" class="sample-notification" layout="nodisplay">
-    This is an amp-user-notification. It uses local storage to store the dismissed state.
-    <button on="tap:my-notification.dismiss">I accept</button>
-  </amp-user-notification>
-
+  
   <!-- ## Advanced usage with a server endpoint -->
   <!--
     When using a backend solution, two parameters are available: `data-show-if-href` and `data-dismiss-if-href`. They can be used together or separatively.
